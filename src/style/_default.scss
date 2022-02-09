@@ -1,0 +1,51 @@
+// Primary
+$Bright-Red: hsl(12, 88%, 59%);
+$Dark-Blue: hsl(228, 39%, 23%);
+
+// Neutral
+$Dark-Grayish-Blue: hsl(227, 12%, 61%);
+$Very-Dark-Blue: hsl(233, 12%, 13%);
+$Very-Pale-Red: hsl(13, 100%, 96%);
+$Vary-Light-Gray: hsl(0, 0%, 98%);
+
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=Public+Sans&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  background-image: url("../../images/bg-tablet-pattern.svg");
+  background-repeat: no-repeat;
+  background-size: 55%;
+  background-position: 125% -5%;
+}
+
+main {
+  background-image: url("../../../images/bg-tablet-pattern.svg");
+  background-repeat: no-repeat;
+  background-size: 55%;
+  background-position: -70% 85%;
+}
+
+.heading {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: $Dark-Blue;
+
+  @media (max-width: 1024px) {
+    &.heading {
+      font-size: 2em;
+    }
+  }
+}
+
+.text {
+  font-size: 1em;
+  color: $Dark-Grayish-Blue;
+  line-height: 1.5em;
+}

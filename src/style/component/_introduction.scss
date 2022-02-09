@@ -1,0 +1,66 @@
+@use "../mixin" as mix;
+@use "../default" as *;
+
+.introduction {
+  @include mix.padding-lr();
+  @include mix.padding-tb();
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .text-introduction {
+    flex: 1;
+    .intro-heading {
+      font-size: 3.5em;
+      color: $Dark-Blue;
+    }
+
+    .text {
+      width: 65%;
+      margin-bottom: 2em;
+    }
+
+    @include mix.btn-started();
+  }
+
+  .img-introductions {
+    text-align: center;
+    flex: 1;
+
+    .img-intro {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    &.introduction {
+      flex-direction: column-reverse;
+
+      .text-introduction {
+        text-align: center;
+
+        .intro-heading {
+          font-size: 3em;
+        }
+
+        .text {
+          width: 100%;
+          padding: 0 10%;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    &.introduction {
+      @include mix.padding-lr($left: 5%, $right: 5%);
+
+      .text-introduction {
+        .text {
+          padding: 0 5%;
+        }
+      }
+    }
+  }
+}

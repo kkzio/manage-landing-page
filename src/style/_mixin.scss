@@ -1,0 +1,30 @@
+@use "./default" as *;
+
+@mixin padding-lr($left: 10%, $right: 10%) {
+  padding-left: $left;
+  padding-right: $right;
+}
+
+@mixin padding-tb($top: 2.5%, $bottom: 2.5%) {
+  padding-top: $top;
+  padding-bottom: $bottom;
+}
+
+@mixin btn-started($bc: $Bright-Red, $textColor: $Vary-Light-Gray) {
+  .started {
+    background-color: $bc;
+    border: none;
+    padding: 1em 2em;
+    border-radius: 30px;
+    transition: all 0.2s ease-in-out;
+
+    .get-link {
+      color: $textColor;
+      text-decoration: none;
+    }
+  }
+
+  .started:hover {
+    opacity: 0.5;
+  }
+}

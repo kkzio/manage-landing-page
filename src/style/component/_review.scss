@@ -1,0 +1,81 @@
+@use "../default" as *;
+@use "../mixin" as mix;
+
+.review {
+  @include mix.padding-tb($bottom: 5%);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  .splide {
+    .card-wrap {
+      @include mix.padding-tb($top: 5%);
+      .card-list {
+        padding: 0;
+        display: flex;
+        gap: 2em;
+        cursor: grabbing;
+
+        .card-content {
+          list-style: none;
+          background-color: $Vary-Light-Gray;
+
+          .profile-picture {
+            width: 15%;
+            transform: translateY(-50%);
+          }
+
+          .profile-name {
+            margin: 0;
+            font-weight: 700;
+          }
+
+          .text {
+            padding: 0 5%;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card-wrap {
+        padding-top: 10%;
+      }
+
+      &.splide {
+        padding: 0 5%;
+      }
+    }
+  }
+
+  @include mix.btn-started();
+
+  .started {
+    margin: 0 auto;
+
+    @media (max-width: 1024px) {
+      margin: 5% auto 0 auto;
+    }
+    width: fit-content;
+  }
+
+  .splide-pagnation {
+    padding: 0;
+
+    .splide__pagination__page {
+      background-color: $Vary-Light-Gray;
+      border: 1px solid $Bright-Red;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .is-active {
+      background-color: $Bright-Red;
+    }
+  }
+
+  .splide-pagnation > *:not(:last-child) {
+    margin-right: 1%;
+  }
+}

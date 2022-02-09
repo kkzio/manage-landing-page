@@ -1,0 +1,71 @@
+@use "../default" as *;
+@use "../mixin.scss" as mix;
+
+.nav {
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include mix.padding-tb();
+  @include mix.padding-lr();
+
+  .navigations {
+    display: flex;
+    gap: 2em;
+
+    .list-navigation {
+      list-style: none;
+
+      .link-navigation {
+        text-decoration: none;
+        color: $Very-Dark-Blue;
+        font-size: 0.8em;
+        font-weight: 700;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .link-navigation:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  @include mix.btn-started();
+
+  .open-menu {
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+    .navigations,
+    .started {
+      display: none;
+    }
+
+    .open-menu {
+      display: block;
+      background-color: transparent;
+      border: none;
+
+      .icon-close {
+        display: none;
+        position: relative;
+      }
+    }
+
+    .open-menu.active {
+      .icon-close {
+        display: block;
+        z-index: 2;
+      }
+      .icon-open {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    margin-top: 5%;
+  }
+}

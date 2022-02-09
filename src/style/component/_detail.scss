@@ -1,0 +1,126 @@
+@use "../mixin" as mix;
+@use "../default" as *;
+
+.detail {
+  @include mix.padding-lr();
+  @include mix.padding-tb();
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .text-detail {
+    flex: 1;
+    .text {
+      width: 60%;
+    }
+  }
+
+  .list-details {
+    flex: 1;
+    .list {
+      .content-list {
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+
+        .number-list {
+          grid-row-start: 1;
+          grid-row-end: 3;
+          background-color: $Bright-Red;
+          height: fit-content;
+          width: fit-content;
+          color: $Vary-Light-Gray;
+          padding: 0.5em 1.5em;
+          border-radius: 30px;
+
+          @media (max-width: 1024px) {
+            &.number-list {
+              grid-row-end: 2;
+              width: 100%;
+              position: relative;
+              z-index: 1;
+            }
+          }
+        }
+
+        .tilte-list {
+          font-size: 1em;
+          color: $Dark-Blue;
+          font-weight: 700;
+          padding-top: 0.5em;
+
+          @media (max-width: 1024px) {
+            &.tilte-list {
+              text-align: left;
+              background-color: $Very-Pale-Red;
+              transform: translateX(-5%);
+              padding-left: 7.5%;
+              width: 105%;
+            }
+          }
+        }
+
+        .text {
+          margin: 0;
+          padding: 0;
+
+          @media (max-width: 1024px) {
+            &.text {
+              text-align: left;
+              grid-column-start: 1;
+              grid-column-end: 3;
+            }
+          }
+        }
+      }
+    }
+
+    .list > *:not(:last-child) {
+      margin-bottom: 5%;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    &.detail {
+      flex-direction: column;
+      text-align: center;
+
+      .text-detail {
+        .text {
+          width: 100%;
+          padding: 0 10%;
+        }
+      }
+      .list-details {
+        .list {
+          .content-list {
+            .tilte-list {
+              width: 120%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    &.detail {
+      @include mix.padding-lr($left: 5%, $right: 5%);
+
+      .text-detail {
+        .heading {
+          padding: 0 5%;
+        }
+        .text {
+          padding: 0 5%;
+        }
+      }
+
+      .list-details {
+        padding: 0;
+        .list {
+          padding: 0 5%;
+        }
+      }
+    }
+  }
+}
